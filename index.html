@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10233f">
+  <meta name="description" content="Meet DOVE, an academic project exploring deepfake detection during video streaming, for a more informed viewing experience.">
+  <meta name="author" content="Christian Coduri">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DOVE">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="DOVE | Deepfake Detection &amp; Temporal Localization">
+  <meta property="og:description" content="Meet DOVE, an academic project exploring deepfake detection during video streaming, for a more informed viewing experience.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DOVE | Deepfake Detection &amp; Temporal Localization">
+  <meta name="twitter:description" content="Meet DOVE, an academic project exploring deepfake detection during video streaming, for a more informed viewing experience.">
+  <title>DOVE | Deepfake Detection &amp; Temporal Localization</title>
+  <link rel="icon" href="assets/dove-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;550;600;700;750&amp;display=swap">
+  <link rel="preload" href="assets/DOVE-prototype-poster.jpg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="header-shell">
+  <header class="header">
+    <a class="brand" href="#" aria-label="DOVE home"><img draggable="false" src="assets/dove-logo.png" width="48" height="34" alt=""><span>DOVE<span class="brand-dot">.</span></span></a>
+    <nav aria-label="Main navigation"><a href="#overview" aria-current="location">Overview</a><a href="#purpose">Idea</a><a href="#how-it-works">How it works</a><a href="#research">Research <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  </div>
+  <main id="main">
+    <section class="hero" id="overview" aria-labelledby="hero-title">
+      <div class="hero-copy wrap">
+        <h1 id="hero-title">See the video.<br><span>Spot what needs<br>a closer look.</span></h1>
+        <div class="hero-bottom"><p>DOVE is a research prototype designed specifically to detect deepfakes in video on demand. By analysing buffered segments ahead of playback, it can look into the <i>future of the video</i>, spot potentially manipulated parts, and warn viewers before they are exposed to them.</p></div>
+      </div>
+      <div class="demo wrap" id="demo">
+        <div class="demo-top"><span>DOVE Research Prototype v0.1 </span></div>
+        <div class="video-shell">
+          <video id="demo-video" autoplay loop muted playsinline preload="auto" poster="assets/DOVE-prototype-poster.jpg" aria-label="Screen recording of the DOVE prototype showing video playback and potential deepfake warnings"><source src="assets/DOVE-prototype.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/DOVE-prototype.mp4">Download the demonstration.</a></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="purpose wrap" id="purpose" aria-labelledby="purpose-title">
+      <p class="eyebrow"><span class="section-index">01 /</span> THE IDEA</p>
+      <div class="purpose-content"><h2 id="purpose-title">Detect deepfakes.<br><span>Locate them in time.</span></h2><div><p class="acronym"><strong>DOVE</strong><span><b>D</b>eepfake <b>O</b>n-demand <b>V</b>ideo <b>E</b>valuator</span></p><p>DOVE is a research prototype that extends MPEG-DASH video-on-demand playback with analysis on the viewer’s device. It extracts frames from buffered video segments and analyses the faces they contain, giving each segment a real-or-deepfake label through <strong>deepfake classification</strong>.</p>
+        <p>Because each segment corresponds to a known interval in the video, its classification also tells us where potential manipulation occurs. This enables <strong>temporal localization</strong>: an approximate indication of the manipulated parts within the full video, since their exact start and end may fall inside a segment.</p>
+        <p>DOVE puts deepfake analysis in the viewer’s hands, without requiring cooperation from the streaming platform. Analysing each segment can help reveal even short manipulations within long videos, while detections in early segments may provide enough evidence to suggest that the entire video is manipulated.</p></div></div>
+    </section>
+
+    <section class="how" id="how-it-works" aria-labelledby="how-title">
+      <div class="story wrap">
+        <div class="story-visual" data-stage="0">
+          <header class="how-intro">
+            <p class="eyebrow"><span class="section-index">02 /</span> HOW IT WORKS</p>
+            <h2 id="how-title">How DOVE works.<br><span>From stream to screen.</span></h2>
+          </header>
+          <nav class="story-controls" aria-label="Explore the three steps">
+            <button type="button" data-go-step="0" aria-pressed="true" aria-controls="story-explanation"><span class="control-number" aria-hidden="true">01</span><span>Download</span></button>
+            <button type="button" data-go-step="1" aria-pressed="false" aria-controls="story-explanation"><span class="control-number" aria-hidden="true">02</span><span>Play</span></button>
+            <button type="button" data-go-step="2" aria-pressed="false" aria-controls="story-explanation"><span class="control-number" aria-hidden="true">03</span><span>Analyze</span></button>
+          </nav>
+          <div class="story-caption" id="story-explanation" aria-live="polite" aria-atomic="true">
+            <article class="story-caption-step is-active" data-caption="0"><p>The Player requests short video segments from the server.</p></article>
+            <article class="story-caption-step" data-caption="1" aria-hidden="true"><p>The Player buffers upcoming segments while the video plays.</p></article>
+            <article class="story-caption-step" data-caption="2" aria-hidden="true"><p>The Inspector uses AI to check segments ahead of playback.</p></article>
+          </div>
+          <div class="diagram" aria-label="The DOVE Player requests each video segment from a remote server, which sends the requested segment back. The local DOVE Player buffers and plays them and extracts frames. The local DOVE Inspector analyses these frames and returns results to the player for display on the timeline.">
+            <div class="remote-zone">
+              <svg class="server-rack" viewBox="0 0 80 72" role="img" aria-label="Video server"><path d="M7 7h66v18H7zM7 29h66v18H7zM7 51h66v18H7z" fill="#e2eaf5" stroke="#54749c" stroke-width="1.5"/><path d="M15 13h28m-28 6h18m-18 16h28m-28 6h18m-18 16h28m-28 6h18" stroke="#54749c" stroke-width="2"/><path d="M60 13v6m0 16v6m0 16v6" stroke="#1263d5" stroke-width="3"/></svg>
+              <div><strong>Video server</strong><span>Internet video source</span></div><span class="zone-label">REMOTE</span>
+            </div>
+            <div class="network-route" aria-hidden="true"><span class="request-label">Request</span><span class="response-label">Segment</span><svg class="network-connector" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><marker id="flow-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1 7 4 1 7" fill="none" stroke="#7696bd" stroke-width="1.4" stroke-linejoin="round"/></marker></defs><path class="network-horizontal request-path" d="M96 30H4" marker-end="url(#flow-arrow)"/><path class="network-horizontal response-path" d="M4 70H96" marker-end="url(#flow-arrow)"/><path class="network-vertical request-path" d="M35 96V4" marker-end="url(#flow-arrow)"/><path class="network-vertical response-path" d="M70 4V96" marker-end="url(#flow-arrow)"/></svg><div class="network-request"><span>01</span></div><div class="network-packet"><img draggable="false" src="assets/183-segments/segment-01.jpg" alt=""><span>01</span></div></div>
+            <div class="local-zone">
+              <div class="local-zone-heading"><span class="device-heading"><svg class="device-icon" viewBox="0 0 40 32" aria-hidden="true"><rect x="5" y="3" width="30" height="20" rx="2" fill="#e2eaf5" stroke="#54749c" stroke-width="1.5"/><path d="M2 26h36l-3 3H5z" fill="#a7bbd3" stroke="#54749c" stroke-width="1.2"/><path d="M17 26h6" stroke="#54749c" stroke-width="1.5"/></svg><strong>Your device</strong></span><span class="zone-label">LOCAL</span></div>
+              <div class="local-workspace">
+                <div class="device-card"><div class="device-title"><span>DOVE Player</span><span id="playback-status">Waiting for video</span></div><div class="player-scene is-loading"><div class="simulation-loading" role="status" aria-label="Buffering video"><span aria-hidden="true"></span></div><video id="simulation-video" muted playsinline preload="auto" poster="assets/183-segments/poster.jpg" data-duration="24" aria-label="Example video: original footage for 13 seconds, followed by manipulated footage"><source src="assets/183_24s.mp4" type="video/mp4">Your browser does not support this video.</video><div class="player-stage-cue" aria-hidden="true"><span class="cue-symbol"><svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></span><span class="cue-caption">Explore in Step 02</span></div><button type="button" class="simulation-start" id="simulation-start" hidden>Play example video <span aria-hidden="true">▶</span></button><span class="now-playing" id="simulation-position">Ready to play</span><aside class="simulation-warning" id="simulation-warning" aria-label="Simulated deepfake warning" hidden><div role="status" aria-live="polite" aria-atomic="true"><strong>Potential deepfake</strong><span id="simulation-warning-segments"></span></div></aside></div></div>
+                <div class="frame-transfer" aria-hidden="true"><span class="frame-route-label">Frames</span><svg class="frame-connector" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M2 50H94" marker-end="url(#flow-arrow)"/></svg><div class="sample-frames"><img draggable="false" src="assets/183-segments/segment-01.jpg" alt=""><img draggable="false" src="assets/183-segments/segment-01.jpg" alt=""></div></div>
+                <div class="dove-analysis"><div class="analysis-brand"><strong>DOVE Inspector</strong></div><div class="inspector-intro">Explore in Step 03</div><div class="inspector-body"><div class="inspector-input"><img draggable="false" id="inspector-frame" src="assets/183-segments/segment-01.jpg" width="80" height="45" alt=""><span class="analysis-status" id="analysis-status">Waiting for frames</span></div><div class="analysis-processing" aria-hidden="true"><span></span></div><span class="analysis-return" id="analysis-return">Timeline results</span></div></div>
+              </div>
+              <div class="timeline-head"><span>Video timeline</span><span id="download-status">0 / 8 downloaded</span></div>
+              <div class="segment-timeline" aria-label="Video timeline in three-second segments"><div class="timeline-segment upcoming" data-segment="0" title="0–3 seconds" aria-label="Segment 01: 0–3 seconds, not downloaded"><span class="segment-number">01</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="1" title="3–6 seconds" aria-label="Segment 02: 3–6 seconds, not downloaded"><span class="segment-number">02</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="2" title="6–9 seconds" aria-label="Segment 03: 6–9 seconds, not downloaded"><span class="segment-number">03</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="3" title="9–12 seconds" aria-label="Segment 04: 9–12 seconds, not downloaded"><span class="segment-number">04</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="4" title="12–15 seconds" aria-label="Segment 05: 12–15 seconds, not downloaded"><span class="segment-number">05</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="5" title="15–18 seconds" aria-label="Segment 06: 15–18 seconds, not downloaded"><span class="segment-number">06</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="6" title="18–21 seconds" aria-label="Segment 07: 18–21 seconds, not downloaded"><span class="segment-number">07</span><span class="segment-verdict" aria-hidden="true"></span></div><div class="timeline-segment upcoming" data-segment="7" title="21–24 seconds" aria-label="Segment 08: 21–24 seconds, not downloaded"><span class="segment-number">08</span><span class="segment-verdict" aria-hidden="true"></span></div><span class="timeline-playhead" aria-hidden="true"></span></div>
+              <div class="timeline-times" aria-hidden="true"><span>0:00</span><span>0:24.0</span></div>
+              <ul class="timeline-legend" aria-label="Timeline legend">
+                <li><span class="timeline-key key-upcoming" aria-hidden="true"></span><span>Not downloaded</span></li>
+                <li><span class="timeline-key" aria-hidden="true"></span><span>Buffered</span></li>
+                <li class="played-legend"><span class="timeline-key key-played" aria-hidden="true"></span><span>Played</span></li>
+                <li class="cursor-legend"><span class="timeline-key key-cursor" aria-hidden="true"></span><span>Playback position</span></li>
+                <li class="detected-legend"><span class="timeline-key key-detected" aria-hidden="true">!</span><span>Potential deepfake</span></li>
+                <li class="analysed-legend"><span class="timeline-key key-analysed" aria-hidden="true">✓</span><span>No manipulation detected</span></li>
+              </ul>
+              <svg class="result-connector" aria-hidden="true"><path marker-end="url(#flow-arrow)"/></svg>
+              <span class="result-transfer" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="story-note"><p>DOVE’s results are signals, not proof. AI can make mistakes, and analysis may finish after playback.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="research wrap" id="research" aria-labelledby="research-title"><p class="eyebrow"><span class="section-index">03 /</span> ROOTED IN RESEARCH</p><h2 id="research-title">An academic project.<br><span>With potential beyond the lab.</span></h2><div class="research-grid"><div><p>DOVE is developed by Christian Coduri as part of his PhD research at <a href="https://www.polito.it/" target="_blank" rel="noopener noreferrer">Politecnico di Torino</a>, supervised by Prof. Alessio Sacco and Prof. Guido Marchetto. It explores how deepfake detection can become part of the video on-demand streaming experience.</p><a class="contact" href="mailto:christian.coduri@polito.it"><span>Let's talk about DOVE<span class="contact-email">christian.coduri@polito.it</span></span><span aria-hidden="true">↗</span></a></div><a class="paper-card" href="https://dl.acm.org/doi/abs/10.1145/3843179.3858046" target="_blank" rel="noopener noreferrer" aria-label="Read the DOVE research paper on ACM Digital Library (opens in a new tab)"><div class="paper-heading"><svg class="paper-icon" viewBox="0 0 60 70" width="60" height="70" aria-hidden="true"><path d="M8 2h30l14 14v50H8zM38 2v15h14M18 31h24M18 40h24M18 49h16" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Read the official paper</h3></div><h4 class="paper-title">Deepfake Detection and Temporal Localization in HTTP Adaptive Streaming via Segment-Level Analysis</h4><p class="paper-authors"><strong>Authors:</strong> Christian Coduri, Alessio Sacco and Guido Marchetto</p><span class="paper-footer"><span class="paper-link">ACM Digital Library</span><span class="paper-doi">DOI: 10.1145/3843179.3858046</span><span class="paper-arrow" aria-hidden="true">↗</span></span></a></div>
+      <section class="research-roadmap" aria-labelledby="roadmap-title">
+        <div class="roadmap-heading"><h3 id="roadmap-title">Research roadmap.</h3><p>What DOVE supports today, what we are developing, and what we plan to investigate next.</p></div>
+        <div class="roadmap-board">
+          <section class="roadmap-column roadmap-implemented" aria-labelledby="roadmap-implemented-title">
+            <h4 id="roadmap-implemented-title"><svg class="roadmap-status-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8 12 3 3 5-6"/></svg><span>Implemented</span></h4>
+            <ul class="roadmap-milestones">
+              <li><h5>MPEG-DASH support</h5><p>Analyze downloaded video segments alongside buffered playback in MPEG-DASH streams.</p></li>
+              <li><h5>Spatial deepfake detection</h5><p>Two frame-extraction strategies support classification: one selects a single frame per segment; the other adapts frame sampling to segment duration.</p></li>
+              <li><h5>Segment-level temporal localization</h5><p>Mapping detections to segment time intervals gives an approximate location of manipulated content within the full video.</p></li>
+            </ul>
+          </section>
+          <section class="roadmap-column roadmap-current" aria-labelledby="roadmap-current-title">
+            <h4 id="roadmap-current-title"><svg class="roadmap-status-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><span>In progress</span></h4>
+            <ul class="roadmap-milestones">
+              <li><h5>Spatiotemporal analysis</h5><p>Combine spatial evidence with relationships across frames to detect manipulations.</p></li>
+              <li><h5>Timeliness measurement</h5><p>Measure warning lead time and how often analysis finishes before playback, compared with detection as content is displayed.</p></li>
+              <li><h5>Evaluation and comparisons</h5><p>Compare detectors and segment configurations across devices, measuring false alarms, missed manipulations, processing cost, energy use and playback impact.</p></li>
+            </ul>
+          </section>
+          <section class="roadmap-column roadmap-future" aria-labelledby="roadmap-future-title">
+            <h4 id="roadmap-future-title"><svg class="roadmap-status-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Z"/></svg><span>Future directions</span></h4>
+            <div class="roadmap-directions">
+              <details><summary>Low-quality segment classification</summary><p>Investigate detection robustness under compression and at low video resolutions.</p></details>
+              <details><summary>Audio-segment analysis</summary><p>Extend segment-level inspection to audio, alongside video analysis.</p></details>
+              <details><summary>Beyond deepfakes</summary><p>Apply buffered-segment analysis to other classification tasks, including harmful-content detection and parental controls.</p></details>
+            </div>
+          </section>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <footer><div class="wrap footer-inner"><a href="#" class="brand"><img draggable="false" src="assets/dove-logo.png" width="48" height="34" alt=""><span>DOVE<span class="brand-dot">.</span></span></a><p>Deepfake On-demand Video Evaluator</p><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div><div class="wrap footer-bottom"><span>Christian Coduri · Politecnico di Torino</span></div></footer>
+</body>
+</html>
